@@ -33,6 +33,7 @@ function kóða(){
 	let hliðrun = prompt('Hversu mikið á að hliðra streng? Gefðu upp heiltölu á bilinu [1,31]');
 
 	if (hliðrun >= 1 && hliðrun <= 31){
+		hlidrun = hliðrun;
 		loka();
 	}
 	else if (!Number.isInteger(hliðrun)){
@@ -45,6 +46,7 @@ function afkóða(){
 	let hliðrun = prompt('Hversu mikið á að hliðra streng? Gefðu upp heiltölu á bilinu [1,31]');
 
 	if (hliðrun >= 1 && hliðrun <= 31){
+		hlidrun = hliðrun;
 		lokaII();
 	}
 	else if (!Number.isInteger(hliðrun)){
@@ -62,7 +64,7 @@ function loka(){
 		for(let i = 0; i<str.length;i++){
 
 			if(LETTERS.includes(str[i])==false) {
-				alert('Þú gafst upp stafi sem ekki er hægt að ' + str + ' Reyndu aftur.');
+				alert('Þú gafst upp stafi sem ekki er hægt að hliðra Reyndu aftur.');
 			}
 
 		}
@@ -90,7 +92,7 @@ function lokaII(){
 		for(let i = 0; i<str.length;i++){
 
 			if(LETTERS.includes(str[i])==false) {
-				alert('Þú gafst upp stafi sem ekki er hægt að ' + str + ' Reyndu aftur.');
+				alert('Þú gafst upp stafi sem ekki er hægt að hliðra Reyndu aftur.');
 			
 			}
 
