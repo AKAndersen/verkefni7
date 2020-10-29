@@ -9,47 +9,51 @@ var hlidrun = 0;
 /**
  * Byrja forrit.
  */
+function start(){
+	do{
+		byrjun();	
+	}while (confirm('aftur?'));
+}
 
-function start() {
+function byrjun() {
 	let begin = prompt("Hvort viltu kóða eða afkóða streng? Skrifaðu ,,kóða'' eða ,,afkóða''");
 	if(begin.toLowerCase() == 'kóða'){
-		en();
+		kóða();
 	}
 	else if(begin.toLowerCase() == 'afkóða'){
-		de();
+		afkóða();
 	}
 	else {
-		alert('Veit ekki hvaða aðgerð „${input}“ er. Reyndu aftur.');
-		start();
+		alert('Veit ekki hvaða aðgerð ' + kóða + ' er. Reyndu aftur.');
 	}
 
 }
 
-function en(){
-	let msg = prompt('Hversu mikið á að hliðra streng? Gefðu upp heiltölu á bilinu [1,31]');
+function kóða(){
+	let hliðrun = prompt('Hversu mikið á að hliðra streng? Gefðu upp heiltölu á bilinu [1,31]');
 
-	if ( 0< msg && msg < 32){
-		hlidrun = msg;
-		end();
+	if (hliðrun >= 1 && hliðrun <= 31){
+		loka();
 	}
-	else if (!Number.isInteger(msg)){
-		prompt(msg + ' er ekki heiltala á bilinu [1,31]. Reyndu aftur.');
+	else if (!Number.isInteger(hliðrun)){
+		prompt(hliðrun + ' er ekki heiltala á bilinu [1,31]. Reyndu aftur.');
 	}
-	else (prompt('msg + "" er ekki heiltala á bilinu [1,31]. Reyndu aftur."'));
+	else (prompt(hliðrun +  'er ekki heiltala á bilinu [1,31]. Reyndu aftur.'));
 }
 
-function de(){
-	let msg = prompt('Hversu mikið á að hliðra streng? Gefðu upp heiltölu á bilinu [1,31]');
+function afkóða(){
+	let hliðrun = prompt('Hversu mikið á að hliðra streng? Gefðu upp heiltölu á bilinu [1,31]');
 
-	if (msg >= 1 && msg <= 31){
-		hlidrun = msg;
-		end1();
+	if (hliðrun >= 1 && hliðrun <= 31){
+		lokaII();
 	}
-	else (msg + ' er ekki heiltala á bilinu [1,31]. Reyndu aftur.');
-
+	else if (!Number.isInteger(hliðrun)){
+		prompt(hliðrun + ' er ekki heiltala á bilinu [1,31]. Reyndu aftur.');
+	}
+	else (prompt(hliðrun +  'er ekki heiltala á bilinu [1,31]. Reyndu aftur.'));
 }
 
-function end(){
+function loka(){
 	let str = prompt('Gefðu upp strenginn sem á að kóða með hliðrun ' + hlidrun);
 
 	str = str.toLocaleUpperCase();
@@ -58,8 +62,7 @@ function end(){
 		for(let i = 0; i<str.length;i++){
 
 			if(LETTERS.includes(str[i])==false) {
-				alert("Þú gafst upp stafi sem ekki er hægt að ${action}: ${invalid.join(', ')}. Reyndu aftur.");
-				end();
+				alert('Þú gafst upp stafi sem ekki er hægt að ' + str + ' Reyndu aftur.');
 			}
 
 		}
@@ -67,17 +70,18 @@ function end(){
 	}
 	else{
 		alert('Þú gafst ekki upp streng. Reyndu aftur.');
-		end();
+	
 	}
-
- 
 }
 
+ 
 
 
 
 
-function end1(){
+
+
+function lokaII(){
 	let str = prompt('Gefðu upp strenginn sem á að kóða með hliðrun ' + hlidrun);
 
 	str = str.toLocaleUpperCase();
@@ -86,8 +90,8 @@ function end1(){
 		for(let i = 0; i<str.length;i++){
 
 			if(LETTERS.includes(str[i])==false) {
-				alert("Þú gafst upp stafi sem ekki er hægt að ${action}: ${invalid.join(', ')}. Reyndu aftur.");
-				end1();
+				alert('Þú gafst upp stafi sem ekki er hægt að ' + str + ' Reyndu aftur.');
+			
 			}
 
 		}
@@ -95,7 +99,7 @@ function end1(){
 	}
 	else{
 		alert('Þú gafst ekki upp streng. Reyndu aftur.');
-		end1();
+	
 	}
 
 }
